@@ -1,0 +1,17 @@
+{% extends 'partials/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} edit Page {% endblock %}
+
+{% block content %} 
+    <div class="container">
+        <div class="card">
+            <h4>Edit Post</h4>
+            <form  method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form|crispy}}
+                <a href="{% url 'post' post.id %}" class="btn btn-outline-secondary"> Cancel</a>
+                <button class="btn " >Edit blog</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

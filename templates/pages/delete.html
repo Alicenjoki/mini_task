@@ -1,0 +1,22 @@
+{% extends 'partials/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Home Page {% endblock %}
+
+{% block content %} 
+    <div class="container" style="margin: auto;">
+        <h4>Are you sure you want to delete <strong>{{post.title}}</strong> post!?</h4>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form|crispy}}
+            <div class="row ">
+                <div class="column1 ">
+                    <a href="{% url 'post' post.id %}" style="background-color: teal;"> Cancel</a>
+                </div>
+                <div class="column2">
+                    <button class="btn " >Delete Post</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
